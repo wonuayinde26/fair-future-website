@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>For Schools - Fair Future</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Shrikhand&display=swap" rel="stylesheet">
+
+  <style>
+    .font-logo {
+      font-family: 'Shrikhand', cursive;
+    }
+  </style>
+</head>
+<body class="bg-[#F3EAE0]">
+
+  <div class="p-4">
+
+    <!-- NAV BAR -->
+    <nav class="flex flex-col md:grid md:grid-cols-3 items-center gap-3 md:gap-0 bg-[#EDE0D2] border border-[#D9C9B6] rounded-2xl px-4 sm:px-6 py-3 sm:py-4">
+      <a href="index.html" class="flex items-center gap-0.5 hover:opacity-70 transition md:justify-self-start"><img src="images/logo.png" alt="Fair Future logo" class="h-14 w-14 sm:h-24 sm:w-24 object-contain sm:-my-[34px]"><span class="font-logo text-xl sm:text-2xl text-[#3A0E14]">Fair Future</span></a>
+      <div class="flex flex-wrap justify-center gap-4 sm:gap-6 text-sm text-[#4A3B30] md:justify-self-center">
+        <a href="applicants.html">For applicants</a>
+        <a href="volunteers.html">For volunteers</a>
+        <a href="schools.html" class="text-[#6B1D28] font-medium">For schools</a>
+      </div>
+      
+    </nav>
+
+    <!-- BACK BUTTON: returns to whatever page the user came from -->
+    <button onclick="history.back()" class="flex items-center gap-1 text-sm text-[#6B1D28] mt-4 ml-1 hover:opacity-70 transition">
+      &#8592; Back
+    </button>
+
+    <!-- PAGE HEADER -->
+    <div class="text-center pt-10 pb-2 px-4 max-w-xl mx-auto">
+      <h1 class="text-3xl font-medium text-[#2B1015] mb-3">Partner with us for fundraising</h1>
+      <p class="text-[#5C4A3D] text-sm leading-relaxed">Tell us a bit about your school and your fundraising idea, and how we can support you.</p>
+    </div>
+
+    <!-- FORM -->
+    <div class="max-w-md mx-auto mt-8 mb-16 bg-[#F3EAE0] border border-[#D9C9B6] rounded-2xl p-6">
+
+      <form id="schoolsForm">
+
+        <label class="text-sm text-[#4A3B30] block mb-1">School name</label>
+        <input type="text" name="schoolName" required placeholder="e.g. Riverside Sixth Form"
+          class="w-full bg-[#F3EAE0] border border-[#B79E86] rounded-md px-3 py-2 text-sm mb-4">
+
+        <label class="text-sm text-[#4A3B30] block mb-1">School address</label>
+        <input type="text" name="address" required placeholder="Street, city, postcode"
+          class="w-full bg-[#F3EAE0] border border-[#B79E86] rounded-md px-3 py-2 text-sm mb-4">
+
+        <label class="text-sm text-[#4A3B30] block mb-1">Contact email</label>
+        <input type="email" name="email" required placeholder="name@school.ac.uk"
+          class="w-full bg-[#F3EAE0] border border-[#B79E86] rounded-md px-3 py-2 text-sm mb-4">
+
+        <label class="text-sm text-[#4A3B30] block mb-1">Contact phone number</label>
+        <input type="tel" name="phone" required placeholder="07123 456789"
+          class="w-full bg-[#F3EAE0] border border-[#B79E86] rounded-md px-3 py-2 text-sm mb-4">
+
+        <label class="text-sm text-[#4A3B30] block mb-1">What's your fundraising idea?</label>
+        <textarea name="fundraisingIdea" required rows="3" placeholder="e.g. a sponsored walk, a bake sale, a talent show..."
+          class="w-full bg-[#F3EAE0] border border-[#B79E86] rounded-md px-3 py-2 text-sm mb-4 resize-none"></textarea>
+
+        <label class="text-sm text-[#4A3B30] block mb-1">Is this a one-off event or an ongoing partnership?</label>
+        <select name="partnershipType" required
+          class="w-full bg-[#F3EAE0] border border-[#B79E86] rounded-md px-3 py-2 text-sm mb-4">
+          <option value="" disabled selected>Select an option</option>
+          <option value="one-off">One-off event</option>
+          <option value="ongoing">Ongoing partnership</option>
+        </select>
+
+        <label class="text-sm text-[#4A3B30] block mb-1">Preferred date</label>
+        <input type="date" name="preferredDate"
+          class="w-full bg-[#F3EAE0] border border-[#B79E86] rounded-md px-3 py-2 text-sm mb-4">
+        <p class="text-xs text-[#8A6A55] -mt-3 mb-4">Optional — leave blank if you're flexible or this is ongoing.</p>
+
+        <label class="text-sm text-[#4A3B30] block mb-1">What support do you need from Fair Future?</label>
+        <textarea name="supportNeeded" required rows="3" placeholder="e.g. promotion, volunteers on the day, materials..."
+          class="w-full bg-[#F3EAE0] border border-[#B79E86] rounded-md px-3 py-2 text-sm mb-6 resize-none"></textarea>
+
+        <button type="submit" class="w-full bg-[#6B1D28] text-[#F3EAE0] py-3 rounded-md text-sm font-medium">Submit</button>
+
+      </form>
+
+    </div>
+
+  </div>
+
+  <script>
+    document.getElementById('schoolsForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const formData = {
+        schoolName: document.querySelector('[name="schoolName"]').value,
+        address: document.querySelector('[name="address"]').value,
+        email: document.querySelector('[name="email"]').value,
+        phone: document.querySelector('[name="phone"]').value,
+        fundraisingIdea: document.querySelector('[name="fundraisingIdea"]').value,
+        partnershipType: document.querySelector('[name="partnershipType"]').value,
+        preferredDate: document.querySelector('[name="preferredDate"]').value,
+        supportNeeded: document.querySelector('[name="supportNeeded"]').value
+      };
+
+      try {
+        const response = await fetch('https://sparkling-reflection-production-4146.up.railway.app/submit-school', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(formData)
+        });
+
+        if (response.ok) {
+          window.location.href = 'submitted.html';
+        } else {
+          alert('Something went wrong submitting your request. Please try again.');
+        }
+      } catch (err) {
+        console.error(err);
+        alert('Could not reach the server. Make sure the backend is running.');
+      }
+    });
+  </script>
+
+  <div id="siteFooter"></div>
+  <script src="site-footer.js"></script>
+</body>
+</html>

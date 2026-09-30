@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>For Applicants - Fair Future</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Shrikhand&display=swap" rel="stylesheet">
+
+  <style>
+    .font-logo {
+      font-family: 'Shrikhand', cursive;
+    }
+  </style>
+</head>
+<body class="bg-[#F3EAE0]">
+
+  <div class="p-4">
+
+    <!-- NAV BAR (same as index.html, but "For applicants" is the active link) -->
+    <nav class="flex flex-col md:grid md:grid-cols-3 items-center gap-3 md:gap-0 bg-[#EDE0D2] border border-[#D9C9B6] rounded-2xl px-4 sm:px-6 py-3 sm:py-4">
+
+      <a href="index.html" class="flex items-center gap-0.5 hover:opacity-70 transition md:justify-self-start"><img src="images/logo.png" alt="Fair Future logo" class="h-14 w-14 sm:h-24 sm:w-24 object-contain sm:-my-[34px]"><span class="font-logo text-xl sm:text-2xl text-[#3A0E14]">Fair Future</span></a>
+
+      <div class="flex flex-wrap justify-center gap-4 sm:gap-6 text-sm text-[#4A3B30] md:justify-self-center">
+        <a href="applicants.html" class="text-[#6B1D28] font-medium">For applicants</a>
+        <a href="volunteers.html">For volunteers</a>
+        <a href="schools.html">For schools</a>
+      </div>
+
+      <div class="hidden md:block"></div>
+
+    </nav>
+
+    <!-- BACK BUTTON: returns to whatever page the user came from -->
+    <button onclick="history.back()" class="flex items-center gap-1 text-sm text-[#6B1D28] mt-4 ml-1 hover:opacity-70 transition">
+      &#8592; Back
+    </button>
+
+    <!-- PAGE HEADER -->
+    <div class="text-center pt-10 pb-2 px-4 max-w-xl mx-auto">
+      <h1 class="text-3xl font-medium text-[#2B1015] mb-3">What do you need help with?</h1>
+      <p class="text-[#5C4A3D] text-sm">Choose an option below to get started. You can come back and use another one any time.</p>
+    </div>
+
+    <!-- THREE OPTION CARDS -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 px-4 py-8">
+
+      <div class="bg-[#EDE0D2] border border-[#D9C9B6] rounded-2xl p-7 text-center">
+        <div class="text-base font-medium text-[#2B1015] mb-2">Health</div>
+        <p class="text-sm text-[#5C4A3D] mb-4">Get connected to care homes, GPs, food banks, and more.</p>
+        <a href="health.html" class="inline-block bg-[#6B1D28] text-[#F3EAE0] text-sm font-medium px-5 py-2 rounded-md">Get started</a>
+      </div>
+
+      <div class="bg-[#EDE0D2] border border-[#D9C9B6] rounded-2xl p-7 text-center">
+        <div class="text-base font-medium text-[#2B1015] mb-2">Career</div>
+        <p class="text-sm text-[#5C4A3D] mb-4">Get connected to opportunities in tech, finance, media, and more.</p>
+        <a href="career.html" class="inline-block bg-[#6B1D28] text-[#F3EAE0] text-sm font-medium px-5 py-2 rounded-md">Get started</a>
+      </div>
+
+      <div class="bg-[#EDE0D2] border border-[#D9C9B6] rounded-2xl p-7 text-center">
+        <div class="text-base font-medium text-[#2B1015] mb-2">Access</div>
+        <p class="text-sm text-[#5C4A3D] mb-4">Request funding for things like travel, a laptop, or an open day.</p>
+        <a href="access.html" class="inline-block bg-[#6B1D28] text-[#F3EAE0] text-sm font-medium px-5 py-2 rounded-md">Get started</a>
+      </div>
+
+    </div>
+
+    <!-- HOW IT WORKS -->
+    <div class="px-4 pt-6 pb-10">
+      <div class="text-center text-lg font-medium text-[#2B1015] mb-6">How it works</div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-3xl mx-auto">
+
+        <div class="text-center">
+          <div class="w-9 h-9 rounded-full bg-[#6B1D28] text-[#F3EAE0] text-sm font-medium flex items-center justify-center mx-auto mb-3">1</div>
+          <div class="text-sm font-medium text-[#2B1015] mb-1">Choose a path</div>
+          <p class="text-xs text-[#5C4A3D]">Pick Health, Career, or Access based on what you need.</p>
+        </div>
+
+        <div class="text-center">
+          <div class="w-9 h-9 rounded-full bg-[#6B1D28] text-[#F3EAE0] text-sm font-medium flex items-center justify-center mx-auto mb-3">2</div>
+          <div class="text-sm font-medium text-[#2B1015] mb-1">Fill in the form</div>
+          <p class="text-xs text-[#5C4A3D]">Tell us a bit about yourself and what you're looking for.</p>
+        </div>
+
+        <div class="text-center">
+          <div class="w-9 h-9 rounded-full bg-[#6B1D28] text-[#F3EAE0] text-sm font-medium flex items-center justify-center mx-auto mb-3">3</div>
+          <div class="text-sm font-medium text-[#2B1015] mb-1">We get back to you</div>
+          <p class="text-xs text-[#5C4A3D]">A member of the team will follow up by email.</p>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+  <div id="siteFooter"></div>
+  <script src="site-footer.js"></script>
+</body>
+</html>

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fair Future</title>
+
+  <!-- Tailwind CSS via CDN - gives us styling classes without any install step -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Google Font for the logo -->
+  <link href="https://fonts.googleapis.com/css2?family=Shrikhand&display=swap" rel="stylesheet">
+
+  <style>
+    .font-logo {
+      font-family: 'Shrikhand', cursive;
+    }
+  </style>
+</head>
+<body class="bg-[#F3EAE0]">
+
+  <!-- Page wrapper with padding, so the nav "floats" inside it -->
+  <div class="p-4">
+
+    <!-- NAV BAR -->
+    <nav class="flex flex-col md:grid md:grid-cols-3 items-center gap-3 md:gap-0 bg-[#EDE0D2] border border-[#D9C9B6] rounded-2xl px-4 sm:px-6 py-3 sm:py-4">
+
+      <a href="index.html" class="flex items-center gap-0.5 hover:opacity-70 transition md:justify-self-start"><img src="images/logo.png" alt="Fair Future logo" class="h-14 w-14 sm:h-24 sm:w-24 object-contain sm:-my-[34px]"><span class="font-logo text-xl sm:text-2xl text-[#3A0E14]">Fair Future</span></a>
+
+      <div class="flex flex-wrap justify-center gap-4 sm:gap-6 text-sm text-[#4A3B30] md:justify-self-center">
+        <a href="applicants.html">For applicants</a>
+        <a href="volunteers.html">For volunteers</a>
+        <a href="schools.html">For schools</a>
+      </div>
+
+      <div class="hidden md:block"></div>
+
+    </nav>
+
+    <!-- HERO SECTION -->
+    <div class="text-center py-16 px-4 max-w-xl mx-auto">
+
+      <p class="uppercase text-xs tracking-wide text-[#8A6A55] mb-3">for students by students</p>
+
+      <h1 class="text-3xl font-medium text-[#2B1015] leading-snug mb-4">
+        Opening doors to work,<br>volunteering, and support
+      </h1>
+
+      <p class="text-[#5C4A3D] mb-6">
+        Fair Future connects students with real opportunities, and helps cover the costs that get in the way.
+      </p>
+
+      <div class="flex gap-3 justify-center">
+        <a href="browse-opportunities.html" class="bg-[#6B1D28] text-[#F3EAE0] px-5 py-3 rounded-md font-medium">Browse opportunities</a>
+        <a href="donate.html" class="border border-[#6B1D28] text-[#6B1D28] px-5 py-3 rounded-md font-medium">Donate</a>
+      </div>
+
+    </div>
+
+    <!-- MEET THE TEAM CAROUSEL -->
+    <div class="px-4 pb-10">
+
+      <h2 class="text-center text-xl font-medium text-[#2B1015] mb-5">Meet the team</h2>
+
+      <div class="bg-[#EDE0D2] border border-[#D9C9B6] rounded-2xl p-6 flex items-center gap-6">
+
+        <button id="prevBtn" class="border border-[#6B1D28] text-[#6B1D28] w-8 h-8 rounded-full flex items-center justify-center shrink-0">
+          &#8592;
+        </button>
+
+        <img id="memberPhoto" src="images/team-photo-1.jpg" alt="Team member photo" class="w-24 h-24 rounded-xl object-cover shrink-0">
+
+        <div class="flex-1">
+          <div id="memberName" class="font-medium text-[#2B1015]">Iziegbuwa Ogbemudia</div>
+          <div id="memberRole" class="text-sm text-[#6B1D28] mb-2">Communications and media lead</div>
+          <div id="memberBio" class="text-sm text-[#5C4A3D]">Runs outreach so students hear about opportunities and support.</div>
+        </div>
+
+        <button id="nextBtn" class="border border-[#6B1D28] text-[#6B1D28] w-8 h-8 rounded-full flex items-center justify-center shrink-0">
+          &#8594;
+        </button>
+
+      </div>
+
+      <!-- dots showing which team member is active -->
+      <div id="dots" class="flex gap-2 justify-center mt-4"></div>
+
+    </div>
+
+    <!-- DONATE SECTION -->
+    <div class="bg-[#2B1015] rounded-2xl px-6 py-8 text-center mb-4">
+      <h2 class="text-lg font-medium text-[#F3EAE0] mb-2">Help fund a student's next step</h2>
+      <p class="text-sm text-[#C9A8A0] mb-4">Every donation goes directly toward opportunities and requests like these.</p>
+      <a href="donate.html" class="inline-block bg-[#F3EAE0] text-[#2B1015] px-6 py-3 rounded-md font-medium">Donate</a>
+    </div>
+
+    <!-- FOOTER LINKS -->
+    <div class="text-center text-xs text-[#8A6A55] pb-2">
+      <a href="#">About us</a>
+      &nbsp;&middot;&nbsp;
+      <a href="#">Contact us</a>
+    </div>
+
+  </div>
+
+  <script>
+    // One entry per team member. Add the remaining 2 the same way once you have their photos/details.
+    const members = [
+      { photo: "images/team-photo-1.jpg", name: "Iziegbuwa Ogbemudia", role: "Communications and media lead", bio: "Runs outreach so students hear about opportunities and support." },
+      { photo: "images/team-photo-2.jpg", name: "Dolapo Fadiro", role: "Events and fundraising lead", bio: "Plans and runs events that raise money and awareness for Fair Future." },
+      { photo: "images/team-photo-3.jpg", name: "Hannah Ikenma", role: "Careers lead", bio: "Sources and vets work and volunteering opportunities for students." },
+      { photo: "images/team-photo-4.jpg", name: "Oladunni Ayinde", role: "Executive lead", bio: "Leads strategy and oversees Fair Future's overall direction." },
+      { photo: "images/team-photo-5.jpg", name: "Omowonuola Ayinde", role: "Finance and partnership lead", bio: "Manages donations, funding requests, and partnerships." }
+    ];
+
+    let currentIndex = 0;
+
+    const dotsContainer = document.getElementById("dots");
+
+    // Build one dot per team member
+    members.forEach((member, index) => {
+      const dot = document.createElement("div");
+      dot.className = "w-1.5 h-1.5 rounded-full " + (index === 0 ? "bg-[#6B1D28]" : "bg-[#D9C9B6]");
+      dotsContainer.appendChild(dot);
+    });
+
+    function renderMember() {
+      const member = members[currentIndex];
+      document.getElementById("memberPhoto").src = member.photo;
+      document.getElementById("memberName").textContent = member.name;
+      document.getElementById("memberRole").textContent = member.role;
+      document.getElementById("memberBio").textContent = member.bio;
+
+      // update dot colors
+      Array.from(dotsContainer.children).forEach((dot, index) => {
+        dot.className = "w-1.5 h-1.5 rounded-full " + (index === currentIndex ? "bg-[#6B1D28]" : "bg-[#D9C9B6]");
+      });
+    }
+
+    document.getElementById("prevBtn").addEventListener("click", () => {
+      currentIndex = (currentIndex - 1 + members.length) % members.length;
+      renderMember();
+    });
+
+    document.getElementById("nextBtn").addEventListener("click", () => {
+      currentIndex = (currentIndex + 1) % members.length;
+      renderMember();
+    });
+  </script>
+
+  <div id="siteFooter"></div>
+  <script src="site-footer.js"></script>
+</body>
+</html>

@@ -1,0 +1,155 @@
+/* COLOUR PALETTE */
+:root {
+    --cream: #FFFEEF;
+    --beige: #F0E7DA;
+    --greige: #B0A999;
+    --cherry: #E30047;
+    --wine: #40110D;
+    --white: #FFFFFF;
+}
+
+/* GLOBAL FONT */
+body {
+    margin: 0;
+    background: var(--cream);
+    font-family: system-ui, sans-serif;
+}
+
+/* NAVIGATION BAR */
+.navbar {
+    background: var(--white);
+    padding: 16px 40px;
+    margin: 20px auto;
+    width: calc(100% - 80px);
+    max-width: 1200px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 2px solid var(--cherry);
+    border-radius: 999px;
+}
+
+/* LOGO */
+.logo {
+    font-family: 'Shrikhand', cursive;
+    font-size: 28px;
+    color: var(--cherry);
+}
+
+/* NAV LINKS */
+.nav-left {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+}
+
+.left-links,
+.right-links {
+    list-style: none;
+    display: flex;
+    gap: 24px;
+    padding: 0;
+    margin: 0;
+}
+
+.left-links a,
+.right-links a {
+    text-decoration: none;
+    font-size: 16px;
+    color: var(--wine);
+    font-weight: 500;
+    transition: 0.2s;
+}
+
+.left-links a:hover,
+.right-links a:hover {
+    color: var(--cherry);
+}
+
+/* BUTTON OUTLINE */
+.btn-outline {
+    border: 2px solid var(--cherry);
+    padding: 6px 14px;
+    border-radius: 999px;
+    color: var(--cherry);
+    background: transparent;
+    font-weight: 600;
+}
+
+.btn-outline:hover {
+    background: #ff5c85;
+    color: var(--white);
+}
+
+/* HERO SECTION */
+.hero {
+    background-image: url('abstract-shapes.jpg'); /* replace later */
+    background-size: cover;
+    background-position: center;
+    padding: 120px 20px;
+    text-align: center;
+    color: var(--wine);
+}
+
+.hero h1 {
+    font-size: 48px;
+}
+
+.hero p {
+    font-size: 20px;
+}
+
+/* ABOUT US SECTION */
+.about-section {
+    max-width: 900px;
+    margin: 60px auto;
+    text-align: center;
+    background: var(--white);
+    padding: 40px;
+    border-radius: 20px;
+    border: 2px solid var(--greige);
+}
+
+.about-section h2 {
+    font-size: 32px;
+    color: var(--cherry);
+}
+
+.about-section p {
+    font-size: 18px;
+    color: var(--wine);
+    margin-top: 10px;
+}
+
+/* CONTACT US SECTION */
+.contact-section {
+    max-width: 900px;
+    margin: 60px auto;
+    text-align: center;
+    background: var(--white);
+    padding: 40px;
+    border-radius: 20px;
+    border: 2px solid var(--greige);
+}
+
+.contact-section h2 {
+    font-size: 32px;
+    color: var(--cherry);
+}
+
+.contact-section p {
+    font-size: 18px;
+    color: var(--wine);
+    margin-top: 10px;
+}
+
+/* FOOTER */
+.footer {
+    background: var(--white);
+    border-top: 2px solid var(--greige);
+    padding: 20px;
+    text-align: center;
+    margin-top: 60px;
+    color: var(--wine);
+    font-size: 16px;
+}

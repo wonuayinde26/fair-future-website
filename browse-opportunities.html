@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Browse Opportunities - Fair Future</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Shrikhand&display=swap" rel="stylesheet">
+
+  <style>
+    .font-logo {
+      font-family: 'Shrikhand', cursive;
+    }
+  </style>
+</head>
+<body class="bg-[#F3EAE0]">
+
+  <div class="p-4">
+
+    <!-- NAV BAR -->
+    <nav class="flex flex-col md:grid md:grid-cols-3 items-center gap-3 md:gap-0 bg-[#EDE0D2] border border-[#D9C9B6] rounded-2xl px-4 sm:px-6 py-3 sm:py-4">
+      <a href="index.html" class="flex items-center gap-0.5 hover:opacity-70 transition md:justify-self-start"><img src="images/logo.png" alt="Fair Future logo" class="h-14 w-14 sm:h-24 sm:w-24 object-contain sm:-my-[34px]"><span class="font-logo text-xl sm:text-2xl text-[#3A0E14]">Fair Future</span></a>
+      <div class="flex flex-wrap justify-center gap-4 sm:gap-6 text-sm text-[#4A3B30] md:justify-self-center">
+        <a href="applicants.html">For applicants</a>
+        <a href="volunteers.html">For volunteers</a>
+        <a href="schools.html">For schools</a>
+      </div>
+      
+    </nav>
+
+    <!-- BACK BUTTON -->
+    <button onclick="history.back()" class="flex items-center gap-1 text-sm text-[#6B1D28] mt-4 ml-1 hover:opacity-70 transition">
+      &#8592; Back
+    </button>
+
+    <!-- PAGE HEADER -->
+    <div class="text-center pt-8 pb-2 px-4 max-w-xl mx-auto">
+      <h1 class="text-3xl font-medium text-[#2B1015] mb-3">Browse opportunities</h1>
+      <p class="text-[#5C4A3D] text-sm leading-relaxed">These are opportunities run by other organisations, not Fair Future itself — clicking one will take you to their website in a new tab.</p>
+    </div>
+
+    <!-- FILTER PILLS -->
+    <div class="flex flex-wrap gap-2 justify-center px-4 pt-6 pb-2" id="filterBar">
+      <button class="filter-btn bg-[#6B1D28] text-[#F3EAE0] text-xs px-4 py-1.5 rounded-full" data-filter="all">All</button>
+      <button class="filter-btn bg-[#EDE0D2] border border-[#D9C9B6] text-[#4A3B30] text-xs px-4 py-1.5 rounded-full" data-filter="university">University programmes</button>
+      <button class="filter-btn bg-[#EDE0D2] border border-[#D9C9B6] text-[#4A3B30] text-xs px-4 py-1.5 rounded-full" data-filter="career">Career &amp; work experience</button>
+      <button class="filter-btn bg-[#EDE0D2] border border-[#D9C9B6] text-[#4A3B30] text-xs px-4 py-1.5 rounded-full" data-filter="volunteering">Volunteering</button>
+    </div>
+
+    <!-- OPPORTUNITY CARDS -->
+    <div id="opportunityGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 px-4 py-8 max-w-5xl mx-auto">
+      <!-- Cards are inserted here by the script below -->
+    </div>
+
+  </div>
+
+  <script>
+    // One entry per external opportunity. category matches the filter buttons' data-filter values.
+    // Note: "Behind the scenes of a doctor" has no confirmed link yet - url is null until we get one.
+    const opportunities = [
+      { name: "Pathway to Bath", org: "University of Bath", category: "university", url: "https://www.bath.ac.uk/campaigns/pathway-to-bath-programme/", description: "A programme supporting Year 12 students towards applying to the University of Bath." },
+      { name: "You'll Fit In", org: "Trinity Hall, Cambridge", category: "university", url: "https://www.trinhall.cam.ac.uk/study-with-us/access-and-outreach/widening-participation/youll-fit-in/", description: "Residentials and webinars demystifying Cambridge admissions for under-represented students." },
+      { name: "Behind the Scenes of a Doctor", org: "Medical work experience", category: "career", url: null, description: "Insight into life as a doctor. Link to be added." },
+      { name: "FoodCycle Barking", org: "FoodCycle", category: "volunteering", url: "https://foodcycle.org.uk/location/foodcycle-barking/", description: "Volunteer to help cook and share surplus food with the local community." },
+      { name: "Residential Summer Schools", org: "University of Surrey", category: "university", url: "https://www.surrey.ac.uk/schools-colleges/sixth-form-colleges/residential-summer-schools", description: "Residential summer schools for sixth form students exploring university subjects." },
+      { name: "Summer Schools", org: "University of Brighton", category: "university", url: "https://www.brighton.ac.uk/studying-here/visit-us/school-college-events/summer-schools/index.aspx", description: "Summer school events for school and college students considering university." },
+      { name: "Next Step York", org: "University of York", category: "university", url: "https://www.york.ac.uk/schools-and-colleges/post-16/next-step-york/", description: "Post-16 programme supporting progression to university at York." },
+      { name: "Black Access", org: "University of York", category: "university", url: "https://www.york.ac.uk/schools-and-colleges/post-16/black-access/", description: "A programme supporting Black students' access to the University of York." },
+      { name: "K+", org: "King's College London", category: "university", url: "https://www.kcl.ac.uk/study/social-mobility/projects/prospective-students/k-plus", description: "A widening participation programme supporting applications to King's." },
+      { name: "Schools and Outreach", org: "Ravensbourne University London", category: "university", url: "https://www.ravensbourne.ac.uk/information/schools-and-outreach", description: "Creative and digital arts outreach, including fashion, for school students." },
+      { name: "Widening Participation (Year 11)", org: "Northeastern University London", category: "university", url: "https://www.nulondon.ac.uk/about/widening-participation/", description: "Widening participation activities for Year 11 students." },
+      { name: "Outreach Programmes", org: "University of Nottingham Medicine", category: "career", url: "https://www.nottingham.ac.uk/medicine/study-with-us/outreach/programmes-and-activities.aspx", description: "Outreach programmes and activities for students interested in medicine." },
+      { name: "Open Days for Prospective Applicants", org: "Christ's College, Cambridge", category: "university", url: "https://www.christs.cam.ac.uk/open-days-prospective-applicants", description: "Open days for students considering applying to Christ's College." },
+      { name: "Careers", org: "RED Construction", category: "career", url: "https://redconstruction.co.uk/careers/", description: "Career opportunities and pathways into the construction industry." },
+      { name: "Work Experience", org: "Health Sciences University", category: "career", url: "https://www.hsu.ac.uk/study/apply/work-experience/", description: "Work experience placements for students interested in health sciences." },
+      { name: "Health Sciences Work Experience", org: "University of Southampton", category: "career", url: "https://www.southampton.ac.uk/schoolsandcolleges/health-sciences-work-experience.page", description: "Work experience opportunities in health sciences at Southampton." },
+      { name: "Volunteer", org: "Hackney Quest", category: "volunteering", url: "https://www.hackneyquest.org.uk/volunteer", description: "Volunteering opportunities supporting young people in Hackney." }
+    ];
+
+    const grid = document.getElementById("opportunityGrid");
+
+    function renderOpportunities(filter) {
+      grid.innerHTML = "";
+
+      const filtered = filter === "all"
+        ? opportunities
+        : opportunities.filter(o => o.category === filter);
+
+      filtered.forEach(opp => {
+        const card = document.createElement("div");
+        card.className = "bg-[#EDE0D2] border border-[#D9C9B6] rounded-xl p-5 flex flex-col";
+
+        // If we don't have a link yet, show the card without a clickable button
+        const linkHtml = opp.url
+          ? `<a href="${opp.url}" target="_blank" rel="noopener noreferrer" class="mt-3 inline-block text-sm text-[#6B1D28] font-medium">Visit site &#8594;</a>`
+          : `<span class="mt-3 inline-block text-sm text-[#8A6A55] italic">Link coming soon</span>`;
+
+        card.innerHTML = `
+          <div class="text-xs uppercase tracking-wide text-[#8A6A55] mb-1">${opp.org}</div>
+          <div class="text-base font-medium text-[#2B1015] mb-2">${opp.name}</div>
+          <p class="text-sm text-[#5C4A3D] flex-1">${opp.description}</p>
+          ${linkHtml}
+        `;
+
+        grid.appendChild(card);
+      });
+    }
+
+    // Wire up the filter buttons
+    document.getElementById("filterBar").addEventListener("click", (e) => {
+      if (!e.target.classList.contains("filter-btn")) return;
+
+      // Update button styling to show which is active
+      document.querySelectorAll(".filter-btn").forEach(btn => {
+        btn.className = "filter-btn bg-[#EDE0D2] border border-[#D9C9B6] text-[#4A3B30] text-xs px-4 py-1.5 rounded-full";
+      });
+      e.target.className = "filter-btn bg-[#6B1D28] text-[#F3EAE0] text-xs px-4 py-1.5 rounded-full";
+
+      renderOpportunities(e.target.dataset.filter);
+    });
+
+    // Initial render: show everything
+    renderOpportunities("all");
+  </script>
+
+  <div id="siteFooter"></div>
+  <script src="site-footer.js"></script>
+</body>
+</html>
